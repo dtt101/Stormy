@@ -12,7 +12,7 @@ import UIKit
 struct Current {
     
     var currentTime: String?
-    var temperature: Int
+    var temperature: Int?
     var humidity: Double
     var precipProbability: Double
     var summary: String
@@ -21,10 +21,12 @@ struct Current {
     init(weatherDictionary: NSDictionary) {
         let currentWeather = weatherDictionary["currently"] as NSDictionary
         
-        temperature = currentWeather["temperature"] as Int
         humidity = currentWeather["humidity"] as Double
         precipProbability = currentWeather["precipProbability"] as Double
         summary = currentWeather["summary"] as String
+        
+        let tempratureInFarenheit = currentWeather["temperature"] as Int
+        temperature = convertFarenheitToCelsius(tempratureInFarenheit)
         
         let currentTimeIntValue = currentWeather["time"] as Int
         currentTime = dateStringFromUnixTime(currentTimeIntValue)
@@ -59,6 +61,10 @@ struct Current {
         }
         var iconImage = UIImage(named: imageName)!
         return iconImage
+    }
+    
+    func convertFarenheitToCelsius(temperature: Int) -> Int {
+        return (temperature - 32) * 5 / 9
     }
     
     

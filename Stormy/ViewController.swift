@@ -42,7 +42,7 @@ class ViewController: UIViewController {
                 let weatherDictionary: NSDictionary = NSJSONSerialization.JSONObjectWithData(dataObject!, options: nil, error: nil) as NSDictionary
                 let currentWeather = Current(weatherDictionary: weatherDictionary)
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    self.temperatureLabel.text = "\(currentWeather.temperature)"
+                    self.temperatureLabel.text = "\(currentWeather.temperature!)"
                     self.iconView.image = currentWeather.icon!
                     self.currentTimeLabel.text = "At \(currentWeather.currentTime!) it is"
                     self.humidityLabel.text = "\(currentWeather.humidity)"
