@@ -72,13 +72,32 @@
                                     <constraint firstAttribute="height" constant="60" id="hmS-Kb-S5a"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wxX-jQ-x2g">
+                                <rect key="frame" x="140" y="28" width="43" height="43"/>
+                                <state key="normal" image="refresh">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="refresh" destination="BYZ-38-t0r" eventType="touchUpInside" id="2zx-dg-SGV"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="TJU-LR-qOM">
+                                <rect key="frame" x="150" y="40" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="degree" translatesAutoresizingMaskIntoConstraints="NO" id="f1J-4e-muE">
+                                <rect key="frame" x="276" y="213" width="36" height="36"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.29019607843137257" green="0.56470588235294117" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="b5X-kh-PJy" firstAttribute="top" secondItem="wkD-N6-uis" secondAttribute="bottom" constant="10" id="096-Po-7iC"/>
                             <constraint firstItem="rum-p8-xds" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="89" id="0RJ-0l-ZpB"/>
+                            <constraint firstItem="rum-p8-xds" firstAttribute="top" secondItem="wxX-jQ-x2g" secondAttribute="bottom" constant="38" id="4GF-eX-zPo"/>
+                            <constraint firstAttribute="centerX" secondItem="wxX-jQ-x2g" secondAttribute="centerX" constant="-1.5" id="7oW-DO-ZHx"/>
                             <constraint firstItem="rum-p8-xds" firstAttribute="leading" secondItem="Xkl-C3-NUD" secondAttribute="trailing" constant="6" id="9dv-r4-Mof"/>
+                            <constraint firstItem="wxX-jQ-x2g" firstAttribute="centerY" secondItem="TJU-LR-qOM" secondAttribute="centerY" constant="-0.5" id="CXo-Vy-ac1"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wkD-N6-uis" secondAttribute="trailing" constant="40" id="DTf-9z-5aI"/>
+                            <constraint firstItem="wxX-jQ-x2g" firstAttribute="centerX" secondItem="TJU-LR-qOM" secondAttribute="centerX" constant="1.5" id="EuL-7w-Kez"/>
                             <constraint firstItem="zEX-zc-bDw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="47" id="LOY-Nt-Kdv"/>
                             <constraint firstAttribute="centerX" secondItem="rum-p8-xds" secondAttribute="centerX" constant="-28.75" id="Nnw-8C-q62"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sKB-hH-8jU" secondAttribute="bottom" constant="90" id="Vrr-aq-H1a"/>
@@ -89,6 +108,8 @@
                             <constraint firstItem="3ki-pq-Asl" firstAttribute="top" secondItem="Anv-pw-8H9" secondAttribute="bottom" constant="-17" id="env-op-Chj"/>
                             <constraint firstItem="VY2-YI-9Me" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="iBl-yi-sYc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="b5X-kh-PJy" secondAttribute="trailing" constant="40" id="jeD-4H-xAV"/>
+                            <constraint firstItem="f1J-4e-muE" firstAttribute="leading" secondItem="3ki-pq-Asl" secondAttribute="trailing" constant="-9.5" id="jlA-ow-v5z"/>
+                            <constraint firstItem="3ki-pq-Asl" firstAttribute="top" secondItem="f1J-4e-muE" secondAttribute="bottom" constant="-51" id="lOy-tZ-xs3"/>
                             <constraint firstItem="zEX-zc-bDw" firstAttribute="top" secondItem="VY2-YI-9Me" secondAttribute="bottom" constant="10" id="nEu-bO-gAa"/>
                             <constraint firstItem="Xkl-C3-NUD" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="72" id="oDk-Su-Nbe"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="VY2-YI-9Me" secondAttribute="bottom" constant="177" id="qbB-Nv-bb1"/>
@@ -100,6 +121,8 @@
                         <outlet property="humidityLabel" destination="zEX-zc-bDw" id="4SW-k3-pMc"/>
                         <outlet property="iconView" destination="Xkl-C3-NUD" id="S1W-JN-SuH"/>
                         <outlet property="precipitationLabel" destination="b5X-kh-PJy" id="zKY-NF-G7O"/>
+                        <outlet property="refreshActivityIndicator" destination="TJU-LR-qOM" id="nP3-Kb-bgm"/>
+                        <outlet property="refreshButton" destination="wxX-jQ-x2g" id="L8u-rv-O1g"/>
                         <outlet property="summaryLabel" destination="sKB-hH-8jU" id="n7g-aJ-f4E"/>
                         <outlet property="temperatureLabel" destination="3ki-pq-Asl" id="j8c-84-feN"/>
                     </connections>
@@ -111,6 +134,8 @@
     </scenes>
     <resources>
         <image name="cloudy-night" width="46" height="43"/>
+        <image name="degree" width="36" height="36"/>
+        <image name="refresh" width="43" height="43"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
